@@ -1,0 +1,5 @@
+A001,System Adminn,admin@vehiclerental.com,$2a$10$aD4l6jcj3mrNbdaiP4i86eFsDF9u9t/VyXujvm8e9HAzmTUxkec2i,SUPERADMIN
+A002,lakshitha dilshan,lakshitha@gmail.com,$2a$10$MqE6P2HEtzc72GVARSkg0umNnYMO75H6IlvIiaSyJBWEgqvYUNWqW,ADMIN
+A003,New Admin,newadmin@vehiclerental.com,$2a$10$02zOldsVqmPEW2zWVqqEvOmdDOJBpyrlKBuI/A31dx5LHfJR.y3LK,ADMIN
+A004,Developer Admin,developer@vehiclerental.com,$2a$10$SlZ3S7yJu7.2cLe2UyWd8OI5LHDVGkPMZvBh1lXE6L9Ks.J6PUtyW,ADMIN
+A005,Test Admin,testadmin@vehiclerental.com,$2a$10$YiKEnsc3PCuQMvQVSLktCedhplp6RX1nJ5BEuC1HhXIvdd4ssY2MK,ADMIN

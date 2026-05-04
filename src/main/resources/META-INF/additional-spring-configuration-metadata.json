@@ -1,0 +1,34 @@
+{
+  "properties": [
+    {
+      "name": "app.data.users-file",
+      "type": "java.lang.String",
+      "description": "Path to the text file used to store user account records."
+    },
+    {
+      "name": "app.data.admins-file",
+      "type": "java.lang.String",
+      "description": "Path to the text file used to store admin account records."
+    },
+    {
+      "name": "app.data.vehicles-file",
+      "type": "java.lang.String",
+      "description": "Path to the text file used to store vehicle listing records."
+    },
+    {
+      "name": "app.data.bookings-file",
+      "type": "java.lang.String",
+      "description": "Path to the text file used to store booking records."
+    },
+    {
+      "name": "app.data.payments-file",
+      "type": "java.lang.String",
+      "description": "Path to the text file used to store payment card and transaction records."
+    },
+    {
+      "name": "app.data.reviews-file",
+      "type": "java.lang.String",
+      "description": "Path to the text file used to store review records."
+    }
+  ]
+}

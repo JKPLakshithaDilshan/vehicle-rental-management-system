@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Seller Approvals - Carbook</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="login-page-body seller-approvals-page">
+  <main class="account-shell">
+    <aside class="account-sidebar">
+      <a href="../index.html" class="account-brand">Carbook</a>
+      <div class="account-profile-sidebar">
+        <span class="account-avatar" id="renterSidebarAvatar">S</span>
+        <div>
+          <strong id="renterSidebarName">Seller</strong>
+          <p id="renterSidebarMeta" class="account-meta">-</p>
+        </div>
+      </div>
+      <nav class="account-menu">
+        <a href="renter-dashboard.html" class="account-menu-item"><span class="icon-car"></span> My Vehicles</a>
+        <a href="seller-approvals.html" class="account-menu-item active"><span class="icon-check"></span> Booking Approvals</a>
+        <a href="seller-profile.html" class="account-menu-item"><span class="icon-user"></span> My Profile</a>
+        <a href="../index.html" class="account-menu-item"><span class="icon-home"></span> Home</a>
+      </nav>
+      <button id="renterLogoutBtn" type="button" class="account-logout-btn"><span class="icon-power-off"></span> Logout</button>
+    </aside>
+    <section class="account-main">
+      <header class="account-topbar">
+        <div class="account-topbar-title-wrap">
+          <h1 class="account-topbar-title">Booking Requests</h1>
+          <p class="account-topbar-subtitle">Approve or reject vehicle booking requests from users.</p>
+        </div>
+      </header>
+      <article class="account-card">
+        <h2>Pending Booking Requests</h2>
+        <div class="table-responsive admin-table-wrap">
+          <table class="table admin-table">
+            <thead>
+              <tr>
+                <th>Booking ID</th>
+                <th>Vehicle</th>
+                <th>User</th>
+                <th>Dates</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="sellerApprovalsTableBody"></tbody>
+          </table>
+        </div>
+        <p id="sellerApprovalsFeedback" class="auth-feedback" aria-live="polite"></p>
+      </article>
+    </section>
+  </main>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/seller-approvals.js"></script>
+  <script>
+    // Populate sidebar profile info from auth status (reuse logic from renter-dashboard)
+    (function() {
+      fetch('/api/auth/status', { credentials: 'same-origin' })
+        .then(r => r.json())
+        .then(auth => {
+          if (auth && auth.user) {
+            document.getElementById('renterSidebarName').textContent = auth.user.name || 'Seller';
+            document.getElementById('renterSidebarMeta').textContent = auth.user.email || '-';
+            document.getElementById('renterSidebarAvatar').textContent = (auth.user.name||'S').charAt(0).toUpperCase();
+          }
+        });
+    })();
+  </script>
+</body>
+</html>

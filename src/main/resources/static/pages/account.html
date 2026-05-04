@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Account - Carbook</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
+    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="../assets/css/aos.css">
+    <link rel="stylesheet" href="../assets/css/ionicons.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../assets/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="../assets/css/flaticon.css">
+    <link rel="stylesheet" href="../assets/css/icomoon.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+  </head>
+  <body class="login-page-body auth-page-account">
+    <main class="account-shell">
+      <aside class="account-sidebar">
+        <a href="../index.html" class="account-brand">Carbook</a>
+        <nav class="account-menu">
+          <a href="account.html" class="account-menu-item active"><span class="icon-user"></span> Profile</a>
+          <a href="user-payment.html" class="account-menu-item"><span class="icon-calendar"></span> My Purchases</a>
+          <!-- Add Car removed for regular users -->
+          <a href="../index.html" class="account-menu-item"><span class="icon-home"></span> Home</a>
+          <a href="car-single.html" class="account-menu-item"><span class="icon-car"></span> Cars</a>
+          <a href="pricing.html" class="account-menu-item"><span class="icon-money"></span> Pricing</a>
+          <a href="contact.html" class="account-menu-item"><span class="icon-envelope-o"></span> Contact</a>
+        </nav>
+        <button id="logoutBtn" type="button" class="account-logout-btn"><span class="icon-power-off"></span> Logout</button>
+      </aside>
+
+      <section class="account-main">
+        <header class="account-topbar">
+          <div class="account-topbar-title-wrap">
+            <h1 class="account-topbar-title">Account Settings</h1>
+            <p class="account-topbar-subtitle">Manage your profile details and account security.</p>
+          </div>
+          <div class="account-topbar-user">
+            <span class="account-avatar">U</span>
+            <div>
+              <strong id="accountName">User</strong>
+              <p id="accountMeta" class="account-meta">-</p>
+            </div>
+          </div>
+        </header>
+
+        <div class="account-content-grid">
+          <article class="account-card account-summary-card">
+            <h2>Account Actions</h2>
+            <p>Update your details anytime and keep your profile information accurate.</p>
+            <button id="editAccountBtn" type="button" class="account-btn-secondary">Edit Details</button>
+            <button id="deleteAccountBtn" type="button" class="account-btn-danger">Delete Account</button>
+          </article>
+
+          <article class="account-card account-form-card">
+            <h2>Profile Information</h2>
+            <form id="accountForm" class="account-form" novalidate>
+              <div class="account-form-row">
+                <div>
+                  <label for="accountNameField">Full Name</label>
+                  <input id="accountNameField" data-editable="true" type="text" placeholder="Enter your name" disabled required>
+                </div>
+                <div>
+                  <label for="accountEmailField">Email</label>
+                  <input id="accountEmailField" data-editable="true" type="email" placeholder="Enter your email" disabled required>
+                </div>
+              </div>
+
+              <div class="account-form-row">
+                <div>
+                  <label for="accountPhoneField">Phone Number</label>
+                  <input id="accountPhoneField" data-editable="true" type="tel" placeholder="Enter your phone" disabled required>
+                </div>
+                <div>
+                  <label for="accountPasswordField">New Password (optional)</label>
+                  <input id="accountPasswordField" data-editable="true" type="password" placeholder="Leave blank to keep current" disabled>
+                </div>
+              </div>
+
+              <div class="account-form-row single">
+                <div>
+                  <label for="accountAddressField">Address</label>
+                  <textarea id="accountAddressField" data-editable="true" rows="3" placeholder="Enter your address" disabled required></textarea>
+                </div>
+              </div>
+
+              <button id="saveAccountBtn" type="submit" class="account-btn-primary" disabled>Save Changes</button>
+            </form>
+            <p id="accountFeedback" class="auth-feedback" aria-live="polite"></p>
+          </article>
+        </div>
+
+        <div class="admin-grid mt-4">
+          <article class="account-card account-form-card">
+            <h2>Purchase Requests on My Car Listings</h2>
+            <div class="table-responsive admin-table-wrap">
+              <table class="table admin-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Vehicle</th>
+                    <th>Customer</th>
+                    <th>Dates</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="renterBookingsBody"></tbody>
+              </table>
+            </div>
+            <p id="renterBookingsFeedback" class="auth-feedback" aria-live="polite"></p>
+          </article>
+
+          <article class="account-card account-form-card">
+            <h2>My Posted Reviews</h2>
+            <div class="table-responsive admin-table-wrap">
+              <table class="table admin-table">
+                <thead>
+                  <tr>
+                    <th>Vehicle</th>
+                    <th>Rating</th>
+                    <th>Comment</th>
+                    <th>Customer</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="myReviewsBody"></tbody>
+              </table>
+            </div>
+            <p id="myReviewsFeedback" class="auth-feedback" aria-live="polite"></p>
+          </article>
+
+          <article class="account-card account-form-card">
+            <h2>Reviews On My Vehicles</h2>
+            <div class="table-responsive admin-table-wrap">
+              <table class="table admin-table">
+                <thead>
+                  <tr>
+                    <th>Vehicle</th>
+                    <th>Rating</th>
+                    <th>Comment</th>
+                    <th>Customer</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="reviewsOnMyVehiclesBody"></tbody>
+              </table>
+            </div>
+            <p id="renterReviewsFeedback" class="auth-feedback" aria-live="polite"></p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <div id="accountReviewModal" class="booking-action-modal" aria-hidden="true">
+      <div class="booking-action-backdrop" data-modal-close="true"></div>
+      <section class="booking-action-card" role="dialog" aria-modal="true" aria-labelledby="accountReviewModalTitle">
+        <header class="booking-action-header">
+          <h3 id="accountReviewModalTitle">Update Review</h3>
+          <button id="accountReviewModalCloseBtn" type="button" class="booking-action-close" aria-label="Close">&times;</button>
+        </header>
+        <form id="accountReviewModalForm" class="account-form" novalidate>
+          <div id="accountReviewFields" class="booking-action-fields is-active">
+            <label for="accountModalRating">Rating (1-5)</label>
+            <input id="accountModalRating" type="number" min="1" max="5" required>
+
+            <label for="accountModalComment">Comment</label>
+            <textarea id="accountModalComment" rows="3" required></textarea>
+          </div>
+
+          <div id="accountReviewDeleteFields" class="booking-action-fields">
+            <p class="mb-0">Are you sure you want to delete this review?</p>
+          </div>
+
+          <p id="accountReviewModalFeedback" class="auth-feedback" aria-live="polite"></p>
+
+          <div class="booking-action-buttons">
+            <button id="accountReviewModalCancelBtn" type="button" class="account-btn-secondary">Cancel</button>
+            <button id="accountReviewModalSaveBtn" type="submit" class="account-btn-primary">Save</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/jquery.easing.1.3.js"></script>
+    <script src="../assets/js/jquery.waypoints.min.js"></script>
+    <script src="../assets/js/jquery.stellar.min.js"></script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="../assets/js/aos.js"></script>
+    <script src="../assets/js/jquery.animateNumber.min.js"></script>
+    <script src="../assets/js/bootstrap-datepicker.js"></script>
+    <script src="../assets/js/jquery.timepicker.min.js"></script>
+    <script src="../assets/js/scrollax.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/account-ops.js"></script>
+  </body>
+</html>

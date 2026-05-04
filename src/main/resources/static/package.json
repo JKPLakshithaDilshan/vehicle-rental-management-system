@@ -1,0 +1,20 @@
+{
+  "name": "vehicle-rental-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "eslint \"assets/js/**/*.js\" \"tests/**/*.js\"",
+    "format": "prettier --write \"**/*.{html,css,js,json,md}\"",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.1",
+    "prettier": "^3.5.3",
+    "vitest": "^3.1.1",
+    "jsdom": "^26.0.0"
+  }
+}

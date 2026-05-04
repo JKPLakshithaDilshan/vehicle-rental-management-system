@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Seller Profile - Carbook</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Modern enhancements for seller profile */
+    .account-form-card {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 2rem 2.5rem;
+      border-radius: 1.25rem;
+      box-shadow: 0 4px 32px 0 rgba(60,72,100,0.10), 0 1.5px 6px 0 rgba(60,72,100,0.06);
+      background: #fff;
+      border: 1px solid #e6e8f0;
+      position: relative;
+    }
+    .account-form-card h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .account-form-card h2 .fa-user-edit {
+      color: #3154c9;
+    }
+    .account-form-row {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .account-form-row.single {
+      flex-direction: column;
+      gap: 0;
+    }
+    .form-control {
+      font-size: 1.1rem;
+      padding: 1rem 1.2rem;
+      border-radius: 0.75rem;
+      border: 1px solid #d1d5db;
+      background: #f8fafc;
+      box-shadow: none;
+      margin-bottom: 0.5rem;
+      transition: border-color 0.2s;
+      width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+    }
+    .form-control:focus {
+      border-color: #3154c9;
+      background: #fff;
+      outline: none;
+    }
+    .btn-primary {
+      font-size: 1.15rem;
+      padding: 0.9rem 0;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, #3154c9 0%, #3f55c7 100%);
+      border: none;
+      box-shadow: 0 2px 8px 0 rgba(37,99,235,0.08);
+      transition: background 0.2s;
+    }
+    .btn-primary:hover, .btn-primary:focus {
+      background: linear-gradient(90deg, #3f55c7 0%, #3154c9 100%);
+    }
+    .auth-feedback {
+      margin-top: 1.2rem;
+      font-size: 1.08rem;
+      color: #1e293b;
+      min-height: 1.5em;
+    }
+    .account-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+      justify-content: flex-start;
+    }
+    .account-stat {
+      background: #f8fafc;
+      border-radius: 1rem;
+      padding: 1.2rem 2.2rem 1.2rem 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 2px 8px 0 rgba(60,72,100,0.06);
+      border: 1px solid #e6e8f0;
+      min-width: 120px;
+    }
+    .account-stat .fa {
+      font-size: 1.7rem;
+      color: #3154c9;
+    }
+    .account-stat .stat-value {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .account-stat .stat-label {
+      font-size: 0.98rem;
+      color: #64748b;
+    }
+    @media (max-width: 900px) {
+      .account-form-card {
+        max-width: 98vw;
+        padding: 1.2rem 0.5rem;
+      }
+      .account-form-row {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .account-stats {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body class="login-page-body auth-page-seller-profile">
+  <main class="account-shell">
+    <aside class="account-sidebar">
+      <a href="../index.html" class="account-brand">Carbook</a>
+      <nav class="account-menu">
+        <a href="renter-dashboard.html" class="account-menu-item"><i class="fa fa-car"></i> My Vehicles</a>
+        <a href="seller-profile.html" class="account-menu-item active"><i class="fa fa-user"></i> My Profile</a>
+        <a href="../index.html" class="account-menu-item"><i class="fa fa-home"></i> Home</a>
+        <a href="car-single.html" class="account-menu-item"><i class="fa fa-th-large"></i> Cars</a>
+        <a href="pricing.html" class="account-menu-item"><i class="fa fa-money-bill"></i> Pricing</a>
+        <a href="contact.html" class="account-menu-item"><i class="fa fa-envelope"></i> Contact</a>
+      </nav>
+      <button id="sellerLogoutBtn" type="button" class="account-logout-btn"><i class="fa fa-power-off"></i> Logout</button>
+    </aside>
+    <section class="account-main">
+      <header class="account-topbar">
+        <div class="account-topbar-title-wrap">
+          <h1 class="account-topbar-title">Seller Profile</h1>
+          <p class="account-topbar-subtitle">Manage your seller details and account security.</p>
+        </div>
+        <div class="account-topbar-user">
+          <span class="account-avatar">S</span>
+          <div>
+            <strong id="sellerProfileName">Seller</strong>
+            <p id="sellerProfileMeta" class="account-meta">-</p>
+          </div>
+        </div>
+      </header>
+      <div class="account-content-grid">
+        <article class="account-card account-form-card">
+          <h2><i class="fa fa-user-edit"></i> Profile Information</h2>
+          <div class="account-stats">
+            <div class="account-stat"><i class="fa fa-car"></i> <div><div class="stat-value" id="statVehicles">-</div><div class="stat-label">Vehicles</div></div></div>
+            <div class="account-stat"><i class="fa fa-calendar-check"></i> <div><div class="stat-value" id="statBookings">-</div><div class="stat-label">Bookings</div></div></div>
+            <div class="account-stat"><i class="fa fa-star"></i> <div><div class="stat-value" id="statReviews">-</div><div class="stat-label">Reviews</div></div></div>
+          </div>
+          <form id="sellerProfileForm" class="account-form" novalidate>
+            <div class="account-form-row">
+              <div>
+                <label for="sellerNameField"><i class="fa fa-user"></i> Full Name</label>
+                <input id="sellerNameField" data-editable="true" type="text" class="form-control mb-2" placeholder="Enter your name" disabled required>
+              </div>
+              <div>
+                <label for="sellerEmailField"><i class="fa fa-envelope"></i> Email</label>
+                <input id="sellerEmailField" data-editable="true" type="email" class="form-control mb-2" placeholder="Enter your email" disabled required>
+              </div>
+            </div>
+            <div class="account-form-row">
+              <div>
+                <label for="sellerContactField"><i class="fa fa-phone"></i> Phone Number</label>
+                <input id="sellerContactField" data-editable="true" type="tel" class="form-control mb-2" placeholder="Enter your phone" disabled required>
+              </div>
+              <div>
+                <label for="sellerPasswordField"><i class="fa fa-lock"></i> New Password (optional)</label>
+                <input id="sellerPasswordField" data-editable="true" type="password" class="form-control mb-2" placeholder="Leave blank to keep current" disabled>
+              </div>
+            </div>
+            <div class="account-form-row single">
+              <div>
+                <label for="sellerLocationField"><i class="fa fa-map-marker-alt"></i> Location</label>
+                <textarea id="sellerLocationField" data-editable="true" rows="3" class="form-control mb-2" placeholder="Enter your location" disabled required></textarea>
+              </div>
+            </div>
+            <button id="saveSellerProfileBtn" type="submit" class="btn btn-primary w-100" disabled><i class="fa fa-save"></i> Save Changes</button>
+            <button id="deleteSellerProfileBtn" type="button" class="btn btn-danger w-100 mt-3" style="background: #be123c; border-color: #be123c;"><i class="fa fa-trash"></i> Delete Profile</button>
+          </form>
+          <p id="sellerProfileFeedback" class="auth-feedback" aria-live="polite"></p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script src="../assets/js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Logout handler for seller
+      var logoutBtn = document.getElementById('sellerLogoutBtn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', function() {
+          fetch('/api/auth/logout', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: '{}' })
+            .finally(function() {
+              window.location.href = 'login.html';
+            });
+        });
+      }
+      var form = document.getElementById('sellerProfileForm');
+      var feedback = document.getElementById('sellerProfileFeedback');
+      var deleteBtn = document.getElementById('deleteSellerProfileBtn');
+      var sellerId = null;
+      function setFormEnabled(enabled) {
+        var fields = form.querySelectorAll('input[data-editable="true"], textarea[data-editable="true"]');
+        fields.forEach(function(f) { f.disabled = !enabled; });
+        document.getElementById('saveSellerProfileBtn').disabled = !enabled;
+        if (deleteBtn) deleteBtn.disabled = !enabled;
+      }
+      setFormEnabled(false);
+      feedback.textContent = 'Loading your seller profile...';
+      fetch('/api/auth/status', {method: 'GET', credentials: 'same-origin'})
+        .then(r => r.json())
+        .then(auth => {
+          if (!auth || !auth.authenticated || String(auth.role).toUpperCase() !== 'SELLER') {
+            window.location.href = 'login.html';
+            return;
+          }
+          fetch('/api/sellers/me', {method: 'GET', credentials: 'same-origin'})
+            .then(r => r.json())
+            .then(data => {
+              var s = data.seller || {};
+              if (!s.name && !s.email && !s.contact && !s.location) {
+                feedback.textContent = 'No seller profile found. Please contact support or re-register.';
+                setFormEnabled(false);
+                return;
+              }
+              sellerId = s.id;
+              document.getElementById('sellerProfileName').textContent = s.name || 'Seller';
+              document.getElementById('sellerProfileMeta').textContent = s.email || '';
+              document.getElementById('sellerNameField').value = s.name || '';
+              document.getElementById('sellerEmailField').value = s.email || '';
+              document.getElementById('sellerContactField').value = s.contact || '';
+              document.getElementById('sellerLocationField').value = s.location || '';
+              // Optionally fetch stats if available
+              fetch('/api/sellers/' + sellerId + '/stats', {method: 'GET', credentials: 'same-origin'})
+                .then(r => r.json())
+                .then(stats => {
+                  document.getElementById('statVehicles').textContent = stats.vehicles ?? '-';
+                  document.getElementById('statBookings').textContent = stats.bookings ?? '-';
+                  document.getElementById('statReviews').textContent = stats.reviews ?? '-';
+                })
+                .catch(function() {
+                  document.getElementById('statVehicles').textContent = '-';
+                  document.getElementById('statBookings').textContent = '-';
+                  document.getElementById('statReviews').textContent = '-';
+                });
+              feedback.textContent = '';
+              setFormEnabled(true);
+            })
+            .catch(function() {
+              feedback.textContent = 'Error loading seller profile. Please try again later.';
+              setFormEnabled(false);
+            });
+        });
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (!sellerId) {
+          feedback.textContent = 'Seller ID not found.';
+          return;
+        }
+        setFormEnabled(false);
+        feedback.textContent = 'Updating profile...';
+        var updatedSeller = {
+          name: document.getElementById('sellerNameField').value,
+          email: document.getElementById('sellerEmailField').value,
+          contact: document.getElementById('sellerContactField').value,
+          location: document.getElementById('sellerLocationField').value
+        };
+        var password = document.getElementById('sellerPasswordField').value;
+        if (password) updatedSeller.password = password;
+        fetch('/api/sellers/' + sellerId, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          credentials: 'same-origin',
+          body: JSON.stringify(updatedSeller)
+        })
+        .then(r => r.json())
+        .then(data => {
+          if (data && data.message && data.message.includes('updated')) {
+            feedback.textContent = 'Profile updated successfully!';
+          } else {
+            feedback.textContent = data.message || 'Update failed.';
+          }
+          setFormEnabled(true);
+        })
+        .catch(function() {
+          feedback.textContent = 'Error updating profile. Please try again later.';
+          setFormEnabled(true);
+        });
+      });
+
+      if (deleteBtn) {
+        deleteBtn.addEventListener('click', function() {
+          if (!sellerId) {
+            feedback.textContent = 'Seller ID not found.';
+            return;
+          }
+          if (!confirm('Are you sure you want to delete your profile? This action cannot be undone.')) {
+            return;
+          }
+          setFormEnabled(false);
+          feedback.textContent = 'Deleting profile...';
+          fetch('/api/sellers/' + sellerId, {
+            method: 'DELETE',
+            credentials: 'same-origin'
+          })
+          .then(r => {
+            if (r.ok) {
+              feedback.textContent = 'Profile deleted. Redirecting...';
+              setTimeout(function() {
+                window.location.href = '../index.html';
+              }, 1500);
+            } else {
+              return r.json().then(data => {
+                feedback.textContent = data.message || 'Delete failed.';
+                setFormEnabled(true);
+              });
+            }
+          })
+          .catch(function() {
+            feedback.textContent = 'Error deleting profile. Please try again later.';
+            setFormEnabled(true);
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

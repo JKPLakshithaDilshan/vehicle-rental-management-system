@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Vehicle Approvals - Carbook</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
+    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="../assets/css/aos.css">
+    <link rel="stylesheet" href="../assets/css/ionicons.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../assets/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="../assets/css/flaticon.css">
+    <link rel="stylesheet" href="../assets/css/icomoon.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+  </head>
+  <body class="login-page-body auth-page-admin-approvals">
+    <main class="account-shell admin-shell">
+      <aside class="account-sidebar">
+        <div class="account-brand">Admin Panel</div>
+        <nav class="account-menu">
+          <a href="admin-dashboard.html" class="account-menu-item"><span class="icon-dashboard"></span> Dashboard</a>
+          <a href="admin-approvals.html" class="account-menu-item active"><span class="icon-check"></span> Vehicle Approvals</a>
+          <a href="../index.html" class="account-menu-item"><span class="icon-home"></span> Home</a>
+          <a href="car-single.html" class="account-menu-item"><span class="icon-car"></span> Cars</a>
+          <a href="pricing.html" class="account-menu-item"><span class="icon-money"></span> Pricing</a>
+          <a href="contact.html" class="account-menu-item"><span class="icon-envelope-o"></span> Contact</a>
+        </nav>
+        <button id="adminApprovalsLogoutBtn" type="button" class="account-logout-btn"><span class="icon-power-off"></span> Logout</button>
+      </aside>
+
+      <section class="account-main">
+        <header class="account-topbar">
+          <div class="account-topbar-title-wrap">
+            <h1 class="account-topbar-title">Vehicle Approvals</h1>
+            <p class="account-topbar-subtitle">Review renter-submitted vehicles and approve or reject quickly.</p>
+          </div>
+          <div class="account-topbar-user">
+            <span class="account-avatar">A</span>
+            <div>
+              <strong id="adminApprovalsName">Admin</strong>
+              <p id="adminApprovalsMeta" class="account-meta">-</p>
+            </div>
+          </div>
+        </header>
+
+        <article class="account-card account-form-card">
+          <h2>Pending Queue</h2>
+          <div class="table-responsive admin-table-wrap">
+            <table class="table admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Seller ID</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Year</th>
+                  <th>Per Day</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="pendingVehiclesTableBody"></tbody>
+            </table>
+          </div>
+          <p id="approvalsFeedback" class="auth-feedback" aria-live="polite"></p>
+        </article>
+      </section>
+    </main>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/jquery.easing.1.3.js"></script>
+    <script src="../assets/js/jquery.waypoints.min.js"></script>
+    <script src="../assets/js/jquery.stellar.min.js"></script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="../assets/js/aos.js"></script>
+    <script src="../assets/js/jquery.animateNumber.min.js"></script>
+    <script src="../assets/js/bootstrap-datepicker.js"></script>
+    <script src="../assets/js/jquery.timepicker.min.js"></script>
+    <script src="../assets/js/scrollax.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/auth.js"></script>
+  </body>
+</html>

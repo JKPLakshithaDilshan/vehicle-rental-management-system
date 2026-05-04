@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Admin Dashboard - Carbook</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
+    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="../assets/css/aos.css">
+    <link rel="stylesheet" href="../assets/css/ionicons.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="../assets/css/jquery.timepicker.css">
+    <link rel="stylesheet" href="../assets/css/flaticon.css">
+    <link rel="stylesheet" href="../assets/css/icomoon.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+  </head>
+  <body class="login-page-body auth-page-admin">
+    <main class="account-shell admin-shell">
+      <aside class="account-sidebar">
+        <div class="account-brand">Admin Panel</div>
+        <nav class="account-menu">
+          <a href="admin-dashboard.html" class="account-menu-item active"><span class="icon-dashboard"></span> Dashboard</a>
+          <a href="admin-approvals.html" class="account-menu-item"><span class="icon-check"></span> Vehicle Approvals</a>
+          <a href="../index.html" class="account-menu-item"><span class="icon-home"></span> Home</a>
+          <a href="car-single.html" class="account-menu-item"><span class="icon-car"></span> Cars</a>
+          <a href="pricing.html" class="account-menu-item"><span class="icon-money"></span> Pricing</a>
+          <a href="contact.html" class="account-menu-item"><span class="icon-envelope-o"></span> Contact</a>
+        </nav>
+        <button id="adminLogoutBtn" type="button" class="account-logout-btn"><span class="icon-power-off"></span> Logout</button>
+      </aside>
+
+      <section class="account-main">
+        <header class="account-topbar">
+          <div class="account-topbar-title-wrap">
+            <h1 class="account-topbar-title">Admin Dashboard</h1>
+            <p class="account-topbar-subtitle">Manage users, administrators, and renter operations securely.</p>
+          </div>
+          <div class="account-topbar-user">
+            <span class="account-avatar">A</span>
+            <div>
+              <strong id="adminProfileName">Admin</strong>
+              <p id="adminProfileMeta" class="account-meta">-</p>
+            </div>
+          </div>
+        </header>
+
+        <div class="admin-grid">
+          <article class="account-card account-form-card">
+            <h2>My Admin Account</h2>
+            <form id="adminAccountForm" class="account-form" novalidate>
+              <div class="account-form-row">
+                <div>
+                  <label for="adminAccountNameField">Name</label>
+                  <input id="adminAccountNameField" type="text" placeholder="Your admin name" required>
+                </div>
+                <div>
+                  <label for="adminAccountEmailField">Email</label>
+                  <input id="adminAccountEmailField" type="email" placeholder="your-admin@email.com" required>
+                </div>
+              </div>
+              <div class="account-form-row">
+                <div>
+                  <label for="adminAccountPasswordField">New Password (optional)</label>
+                  <input id="adminAccountPasswordField" type="password" placeholder="Leave blank to keep current password">
+                </div>
+                <div>
+                  <label for="adminAccountConfirmPasswordField">Confirm New Password</label>
+                  <input id="adminAccountConfirmPasswordField" type="password" placeholder="Re-enter new password">
+                </div>
+              </div>
+              <p class="admin-form-hint">Update your details here. Password is optional unless you want to change it.</p>
+              <button type="submit" class="account-btn-primary">Update My Account</button>
+            </form>
+            <p id="adminAccountFeedback" class="auth-feedback" aria-live="polite"></p>
+          </article>
+
+          <article class="account-card account-form-card">
+            <h2>Create Admin</h2>
+            <form id="createAdminForm" class="account-form" novalidate>
+              <div class="account-form-row">
+                <div>
+                  <label for="adminNameInput">Name</label>
+                  <input id="adminNameInput" type="text" placeholder="Admin name" required>
+                </div>
+                <div>
+                  <label for="adminEmailInput">Email</label>
+                  <input id="adminEmailInput" type="email" placeholder="admin@email.com" required>
+                </div>
+              </div>
+              <div class="account-form-row">
+                <div>
+                  <label for="adminPasswordInput">Password</label>
+                  <input id="adminPasswordInput" type="password" placeholder="Strong password" required>
+                </div>
+                <div>
+                  <label for="adminConfirmPasswordInput">Confirm Password</label>
+                  <input id="adminConfirmPasswordInput" type="password" placeholder="Re-enter password" required>
+                </div>
+              </div>
+              <div class="account-form-row">
+                <div>
+                  <label for="adminRoleInput">Role</label>
+                  <select id="adminRoleInput" class="admin-select" required>
+                    <option value="ADMIN">ADMIN</option>
+                    <option value="SUPERADMIN">SUPERADMIN</option>
+                  </select>
+                </div>
+              </div>
+              <p class="admin-form-hint">Created admins can login using their email and password on the Login page.</p>
+              <button type="submit" class="account-btn-primary">Create Admin</button>
+            </form>
+            <p id="adminCreateFeedback" class="auth-feedback" aria-live="polite"></p>
+
+            <div class="admin-search-row">
+              <input id="adminSearchInput" type="text" class="admin-search-input" placeholder="Search admin by ID (e.g., A001)">
+              <button id="adminSearchBtn" type="button" class="account-btn-secondary">Search</button>
+              <button id="adminReloadBtn" type="button" class="account-btn-secondary">Reload</button>
+            </div>
+
+            <div class="table-responsive admin-table-wrap">
+              <table class="table admin-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="adminsTableBody"></tbody>
+              </table>
+            </div>
+            <p id="adminListFeedback" class="auth-feedback" aria-live="polite"></p>
+          </article>
+
+          <article class="account-card account-form-card">
+            <h2>User Management</h2>
+            <div class="admin-search-row user-search-row">
+              <input id="userSearchInput" type="text" class="admin-search-input" placeholder="Search users by name, email, phone, address">
+              <button id="userSearchBtn" type="button" class="account-btn-secondary">Search</button>
+              <button id="userReloadBtn" type="button" class="account-btn-secondary">Reload</button>
+            </div>
+
+            <div class="table-responsive admin-table-wrap">
+              <table class="table admin-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>User Type</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="usersTableBody"></tbody>
+              </table>
+            </div>
+            <p id="userListFeedback" class="auth-feedback" aria-live="polite"></p>
+            <p class="admin-form-hint">User Type rule: users with at least one listed vehicle are shown as RENTER. Others are shown as CLIENT.</p>
+          </article>
+
+          <article class="account-card account-form-card">
+            <h2>Vehicle List</h2>
+            <div class="admin-search-row user-search-row">
+              <input id="vehicleAdminSearchInput" type="text" class="admin-search-input" placeholder="Search by ID, renter, brand, model, year, status">
+              <button id="vehicleAdminSearchBtn" type="button" class="account-btn-secondary">Search</button>
+              <button id="vehicleAdminReloadBtn" type="button" class="account-btn-secondary">Reload</button>
+            </div>
+
+            <div class="table-responsive admin-table-wrap">
+              <table class="table admin-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Seller</th>
+                    <th>Vehicle</th>
+                    <th>Year</th>
+                    <th>Rate/Day</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="adminVehiclesTableBody"></tbody>
+              </table>
+            </div>
+            <p id="adminVehicleListFeedback" class="auth-feedback" aria-live="polite"></p>
+          </article>
+
+          <article class="account-card account-form-card">
+            <h2>All Reviews</h2>
+            <div class="admin-search-row user-search-row">
+              <input id="reviewAdminSearchInput" type="text" class="admin-search-input" placeholder="Search by review ID, vehicle, customer, rating, comment">
+              <button id="reviewAdminSearchBtn" type="button" class="account-btn-secondary">Search</button>
+              <button id="reviewAdminReloadBtn" type="button" class="account-btn-secondary">Reload</button>
+            </div>
+
+            <div class="table-responsive admin-table-wrap">
+              <table class="table admin-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Vehicle</th>
+                    <th>Rating</th>
+                    <th>Comment</th>
+                    <th>Customer</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="adminReviewsTableBody"></tbody>
+              </table>
+            </div>
+            <p id="adminReviewListFeedback" class="auth-feedback" aria-live="polite"></p>
+          </article>
+
+          <!-- Payment Details Table -->
+          <article class="account-card account-form-card">
+            <h2>Payment Details</h2>
+            <div class="table-responsive admin-table-wrap">
+              <table class="table admin-table">
+                <thead>
+                  <tr>
+                    <th>Payment ID</th>
+                    <th>User</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody id="adminPaymentsTableBody">
+                  <!-- Payment rows will be dynamically inserted here -->
+                </tbody>
+              </table>
+            </div>
+            <p id="adminPaymentListFeedback" class="auth-feedback" aria-live="polite"></p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/jquery.easing.1.3.js"></script>
+    <script src="../assets/js/jquery.waypoints.min.js"></script>
+    <script src="../assets/js/jquery.stellar.min.js"></script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="../assets/js/aos.js"></script>
+    <script src="../assets/js/jquery.animateNumber.min.js"></script>
+    <script src="../assets/js/bootstrap-datepicker.js"></script>
+    <script src="../assets/js/jquery.timepicker.min.js"></script>
+    <script src="../assets/js/scrollax.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/auth.js"></script>
+  </body>
+</html>

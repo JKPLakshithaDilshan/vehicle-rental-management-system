@@ -1,0 +1,2 @@
+1|1|Toyota|prius|2013|55.0|Toyota prius|https://cimg1.ibsrv.net/ibimg/hgm/1608x905-1/100/533/2016-toyota-prius--first-drive-laguna-niguel-ca-nov-2015_100533973.jpg|APPROVED|2026-04-01T12:33:58.715268|2026-04-01T12:34:37.779918
+1|1|Toyota|prius|2013|55.0|Toyota prius|https://cimg1.ibsrv.net/ibimg/hgm/1608x905-1/100/533/2016-toyota-prius--first-drive-laguna-niguel-ca-nov-2015_100533973.jpg|SOLD|2026-04-01T12:33:58.715268|2026-04-01T12:58:11.096575
